@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="mi_musica.list">
+      <field name="name">mi_musica list</field>
+      <field name="model">mi_musica.mi_musica</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="mi_musica.action_window">
+      <field name="name">mi_musica window</field>
+      <field name="res_model">mi_musica.mi_musica</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="mi_musica.action_server">
+      <field name="name">mi_musica server</field>
+      <field name="model_id" ref="model_mi_musica_mi_musica"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="mi_musica" id="mi_musica.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="mi_musica.menu_1" parent="mi_musica.menu_root"/>
+    <menuitem name="Menu 2" id="mi_musica.menu_2" parent="mi_musica.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="mi_musica.menu_1_list" parent="mi_musica.menu_1"
+              action="mi_musica.action_window"/>
+    <menuitem name="Server to list" id="mi_musica" parent="mi_musica.menu_2"
+              action="mi_musica.action_server"/>
+    -->
+  </data>
+</odoo>
