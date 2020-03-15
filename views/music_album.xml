@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id='music_album_action' model='ir.actions.act_window'>
+        <field name="name">Álbumes</field>
+        <field name="res_model">music.album</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <menuitem name="Mi Música" id="mi_musica_base_menu" />
+    <menuitem name="Álbumes" id="music_album_menu" parent="mi_musica_base_menu" action="music_album_action"/>
+
+    <!-- Form View -->
+    <record id="music_album_view_form" model="ir.ui.view">
+        <field name="name">Álbumes Form</field>
+        <field name="model">music.album</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name"/>
+                    <field name="album_image" widget="image" class="oe_avatar"/>
+                    <field name="artist_id"/>
+                    <field name="date_release"/>
+                </group>
+                <group>
+                    <field name="track_ids"/> 
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree(list) View -->
+    <record id="music_album_view_tree" model="ir.ui.view">
+        <field name="name">Álbumes List</field>
+        <field name="model">music.album</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="artist_id"/>
+                <field name="date_release"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="music_album_view_kanban" model="ir.ui.view">
+        <field name="name">Álbumes Kanban</field>
+        <field name="model">music.album</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id"/>
+                <field name="name"/>
+                <field name="artist_id"/>
+                <field name="album_image"/>
+                <field name="date_release"/>
+                <templates>
+                    <t t-name="kanban-box">                    
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <field name="name" />
+                            <t t-if="record.album_image.raw_value">                                    
+                                    <div class="o_kanban_image_fill_left d-none d-md-block">
+                                        <img class="o_kanban_image_inner_pic" style="max-height: 100px;max-width: 100px" t-att-alt="record.id.value" t-att-src="kanban_image('music.album', 'album_image', record.id.raw_value)"/>
+                                    </div>
+                            </t>  
+                            <field name="artist_id"/>                       
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+</odoo>

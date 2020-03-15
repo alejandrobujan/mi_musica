@@ -1,2 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_mi_musica_mi_musica,mi_musica.mi_musica,model_mi_musica_mi_musica,,1,0,0,0
+acl_album,music.album_default,model_music_album,,1,1,1,1
+acl_gender,music.gender_default,model_music_gender,,1,1,1,1
+acl_artist,music.artist_default,model_music_artist,,1,1,1,1
+acl_track,music.track_default,model_music_track,,1,1,1,1

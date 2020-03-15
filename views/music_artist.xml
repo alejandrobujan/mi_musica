@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>   
+    <record id='music_artist_action' model='ir.actions.act_window'>
+        <field name="name">Artistas</field>
+        <field name="res_model">music.artist</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Artistas" id="music_artist_menu" parent="mi_musica_base_menu" action="music_artist_action"/>
+
+    <!-- Form View -->
+    <record id="music_artist_view_form" model="ir.ui.view">
+        <field name="name">Artistas Form</field>
+        <field name="model">music.artist</field>
+        <field name="arch" type="xml">
+            <form>                
+                <group>
+                    <group>
+                        <field name="partner_id"/>
+                        <field name="member_image" widget="image" class="oe_avatar"/>
+                    </group>
+                    <group>                     
+                        <field name="date_start"/>
+                        <field name="date_of_birth"/>                        
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree(list) View -->
+    <record id="music_artist_view_tree" model="ir.ui.view">
+        <field name="name">Artistas List</field>
+        <field name="model">music.artist</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="partner_id"/>
+                <field name="date_of_birth"/>
+                <field name="date_start"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
