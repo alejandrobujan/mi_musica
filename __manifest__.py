@@ -1,11 +1,8 @@
 # -*- coding: utf-8 -*-
 {
     'name': "Mi Musica",
-
-    'summary': "Gestiona canciones, artistas y álbumes.",
-
-    'description': "Módulo para la gestión de música. Trabaja con canciones, artistas y álbumes. Desarrollado para el módulo de SXE en IES San Clemente en 2020.",
-
+    'summary': """Gestiona canciones, artistas y álbumes.""",
+    'description': """Módulo para la gestión de música. Trabaja con canciones, artistas y álbumes. Desarrollado para el módulo de SXE en IES San Clemente en 2020.""",
     'author': "Alejandro Buján",
     'website': "https://github.com/alejandrobujan/mi_musica",
 
