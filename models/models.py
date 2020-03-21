@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import logging
 
-from odoo import models, fields, api
+from odoo import models, fields, api, exceptions
 from odoo.exceptions import UserError
 from odoo.tools.translate import _
 
@@ -44,15 +44,43 @@ class MusicTrack(models.Model):
     name = fields.Char('Canción', required=True)
     gender_id = fields.Many2one('music.gender', string='Género')
     artist_ids = fields.Many2many('music.artist', string='Artistas')
+    artist_names = fields.Char('Artistas',compute="get_artist_names")
     album_id =  fields.Many2one('music.album', string='Álbum')
     date_release = fields.Date('Fecha de Lanzamiento')
+    
+    url = fields.Char('Ruta a la canción')
+    player = fields.Char('Reproducir', compute="make_player",default='')
 
     album_image = fields.Binary('Imagen del Álbum', related='album_id.album_image')
+
+    @api.multi
+    def get_artist_names(self):
+        for record in self:
+            if type(record.artist_ids) is not bool:
+                record.artist_names = ""
+                for artist in record.artist_ids:
+                    record.artist_names += artist.partner_id.name
+                    record.artist_names += ", "
+                if type(record.artist_names) is not bool:
+                    record.artist_names = record.artist_names[:-2]
+            else:
+                record.artist_names = "Desconocido"
+
+    @api.multi
+    def make_player(self):
+        for record in self:
+            if type(record.url) is not bool and len(record.url) != 0:
+                record.player = "<audio controls=\"\"><source src=\""+str(record.url)+"\" type=\"audio/mpeg\" /></audio>"
+            else:
+                record.player = "<p>No se ha especificado la URL. Especifícala para mostrar el reproductor.</p>"
     
     @api.constrains('artist_ids')
     def _check_date_release(self):
         for record in self:
             artists = record.artist_ids
             for artist in artists:
-                if record.date_release < artist.date_start:
-                    raise models.ValidationError('¡El lanzamiento de la canción no pudo ser antes del comienzo del artista!')
+                if type(artist.date_start) is not bool:
+                    if record.date_release < artist.date_start:
+                        raise models.ValidationError('¡El lanzamiento de la canción no pudo ser antes del comienzo del artista!')
+                    
+

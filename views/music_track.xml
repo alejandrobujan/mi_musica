@@ -17,15 +17,19 @@
         <field name="arch" type="xml">
             <form>
                 <group>
-                    <field name="name"/>
-                    <field name="date_release"/>
-                    <field name="gender_id"/>
+                    <group>
+                        <field name="name"/>
+                        <field name="date_release"/>
+                        <field name="gender_id"/>
+                        <field name="player" widget="html"/>
+                    </group>
+                    <group>
+                        <field name="album_id"/>
+                        <field name="album_image" widget="image" class="oe_avatar"/>
+                        <field name="url"/>
+                    </group>
                 </group>
                 <field name="artist_ids"/>
-                <group>
-                    <field name="album_id"/>
-                    <field name="album_image" widget="image" class="oe_avatar"/>
-                </group>
             </form>
         </field>
     </record>
@@ -37,9 +41,9 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
-                <field name="date_release"/>
+                <field name="artist_names"/>
                 <field name="album_id"/>
-                <field name="artist_ids"/>
+                <field name="player" widget="html"/>
             </tree>
         </field>
     </record>
