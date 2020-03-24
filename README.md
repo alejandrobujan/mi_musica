@@ -55,7 +55,7 @@ Los artistas, en este caso, heredan del modelo __res.partner__ y se le añaden c
 
 __Mi Música__ ha sido probado con éxito en la versión 12.0 de Odoo.
 
-## Colaboradores
+## _Colaboradores_
 
 + Alejandro Buján <alejandro.bujan.pampin@gmail.com>
 
