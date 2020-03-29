@@ -14,7 +14,7 @@ class MusicAlbum(models.Model):
     _name = 'music.album'
     _description = 'Álbum Musical'
 
-    name = fields.Char('Album', required=True)
+    name = fields.Char('Álbum', required=True)
     date_release = fields.Date('Fecha de Lanzamiento')
     album_image = fields.Binary('Carátula')
     artist_id = fields.Many2one('music.artist', string='Artista')
