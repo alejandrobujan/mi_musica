@@ -60,3 +60,5 @@ __Mi Música__ ha sido probado con éxito en la versión 12.0 de Odoo.
 + Alejandro Buján <alejandro.bujan.pampin@gmail.com>
 
 Si el proyecto te parece interesante y quieres convertirte en colaborador, contacta directamente mediante correo electrónico.
+
+"Avicii" y el resto de álbumes, canciones, y artistas referenciados son marcas registradas y este proyecto no tiene ningún tipo de relación con ellas ya que fue creado únicamente con fines educativos, no está ligado a estas marcas, y tampoco se hace responsable de su posible uso malintencionado.
